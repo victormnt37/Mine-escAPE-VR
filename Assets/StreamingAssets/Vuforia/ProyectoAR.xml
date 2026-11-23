@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig>
+  <Tracking>
+    <ImageTarget name="cueva" size="20.000000 35.833332" />
+    <ImageTarget name="mono_en_vagoneta" size="20.000000 29.988138" />
+    <ImageTarget name="imagen_mono_sentado" size="20.000000 29.988138" />
+  </Tracking>
+</QCARConfig>

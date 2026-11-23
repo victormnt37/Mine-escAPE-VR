@@ -1,0 +1,355 @@
+fileFormatVersion: 2
+guid: 4ce60172f68de4b41bb34904cb3d7a7a
+ModelImporter:
+  serializedVersion: 24200
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mono_material
+    second: {fileID: 2100000, guid: feda0000000000000000000000000001, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Casco_Amarillo
+    second: {fileID: 2100000, guid: feda0000000000000000000000000002, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Casco_Marron
+    second: {fileID: 2100000, guid: feda0000000000000000000000000003, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Lampara_Exterior
+    second: {fileID: 2100000, guid: feda0000000000000000000000000004, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Lampara_Cristal
+    second: {fileID: 2100000, guid: feda0000000000000000000000000005, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metal
+    second: {fileID: 2100000, guid: feda0000000000000000000000000006, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wood
+    second: {fileID: 2100000, guid: feda0000000000000000000000000007, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FrontLight
+    second: {fileID: 2100000, guid: feda0000000000000000000000000008, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BackLights
+    second: {fileID: 2100000, guid: feda0000000000000000000000000009, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BackLights.001
+    second: {fileID: 2100000, guid: feda0000000000000000000000000010, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Gorila_body_BaseColor
+    second: {fileID: 2800000, guid: 6ca883df36f0fa34c82b1ac7d118509f, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Gorila_body_Metallic
+    second: {fileID: 2800000, guid: 2bcda1b7e9e142f469866040f8a9e747, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Gorila_body_Normal
+    second: {fileID: 2800000, guid: 8705ef8bb24ab344e9ec99b47fff7adc, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Gorila_body_Roughness
+    second: {fileID: 2800000, guid: 5dd715d1327ec3b458ff679992d1b7ef, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Vagoneta_BackLights_BaseColor
+    second: {fileID: 2800000, guid: a56c72effc8530b4ca61fbd721fc68d4, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Vagoneta_BackLights_Emissive
+    second: {fileID: 2800000, guid: 263e617f1f49f7f4db8b925982d6743b, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Vagoneta_BackLights_Metallic
+    second: {fileID: 2800000, guid: 865a2e1936afcac44a95160d5a28a485, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Vagoneta_BackLights_Normal
+    second: {fileID: 2800000, guid: 8fc044f836ba2a24aa53ac05736a7af6, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Vagoneta_BackLights_Roughness
+    second: {fileID: 2800000, guid: 608c25dec817e44459ae725c6c80076b, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Vagoneta_FrontLight_BaseColor
+    second: {fileID: 2800000, guid: 401c05c6f807e5746804f21a01549bba, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Vagoneta_FrontLight_Emissive
+    second: {fileID: 2800000, guid: 1cef39a62cd96d64d8d98a05acb790e9, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Vagoneta_FrontLight_Metallic
+    second: {fileID: 2800000, guid: cfe1face3ebf6dc41b15d792c79796e9, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Vagoneta_FrontLight_Normal
+    second: {fileID: 2800000, guid: 95a0d0c454f6dbe4787752677f113b11, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Vagoneta_FrontLight_Roughness
+    second: {fileID: 2800000, guid: 1adc60ee7cffef14084105d671dbb79b, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Vagoneta_Metal_BaseColor
+    second: {fileID: 2800000, guid: 72f45c7949301264f8e1041a72f34ce5, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Vagoneta_Metal_Emissive
+    second: {fileID: 2800000, guid: 38172e0b915753641bc7e0f92e459283, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Vagoneta_Metal_Metallic
+    second: {fileID: 2800000, guid: dafceb8388aa09543bf61db6a4d9004e, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Vagoneta_Metal_Roughness
+    second: {fileID: 2800000, guid: ab3ea826515fc5848bfe7fed5eadf38a, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Vagoneta_Wood_BaseColor
+    second: {fileID: 2800000, guid: 967421e4851a45c4d844cf367fa29082, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Vagoneta_Wood_Emissive
+    second: {fileID: 2800000, guid: ea792701153fec249ac5e378b3e9c80b, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Vagoneta_Wood_Metallic
+    second: {fileID: 2800000, guid: d62cd553747fe404bac7852b9975a10a, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Vagoneta_Wood_Roughness
+    second: {fileID: 2800000, guid: c720a0663e5b58f489bc92897b1787e0, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: miners hat_amarillo_BaseColor
+    second: {fileID: 2800000, guid: 769b521e9de00284e87bbe3017850da4, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: miners hat_amarillo_Emissive
+    second: {fileID: 2800000, guid: 7f5c587a2bee0044bafad3c2117b3eea, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: miners hat_amarillo_Metallic
+    second: {fileID: 2800000, guid: ff2f187dce351b248a498bcc3422561c, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: miners hat_amarillo_Normal
+    second: {fileID: 2800000, guid: a358b1bb969166146a2dc93d077f1eed, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: miners hat_contain1_BaseColor
+    second: {fileID: 2800000, guid: 1833cce4a7444a14ead54e05af49495f, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: miners hat_contain1_Metallic
+    second: {fileID: 2800000, guid: 6f441208851e85942a13c7a1e4d7b715, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: miners hat_contain1_Normal
+    second: {fileID: 2800000, guid: 2f975ff179c9b7f4380ef1bc5fc20de1, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: miners hat_contain1_Roughness
+    second: {fileID: 2800000, guid: 5913b531901716345808e41b057d8785, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: miners hat_contain2_BaseColor
+    second: {fileID: 2800000, guid: e52f6d7ce47ff2840993a12d812c97c0, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: miners hat_contain2_Metallic
+    second: {fileID: 2800000, guid: 62b919da4250611408eeef26f84fb8c5, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: miners hat_contain2_Normal
+    second: {fileID: 2800000, guid: fdabea210c5414e46bb97df6c377c04c, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: miners hat_contain2_Roughness
+    second: {fileID: 2800000, guid: 3d377bc41fbab2340914786b0d9b275d, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: miners hat_luz_BaseColor
+    second: {fileID: 2800000, guid: 425d19772f50a0845b19c9d2cc53a4d8, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: miners hat_luz_Emissive
+    second: {fileID: 2800000, guid: 94c2e1fe03de5134b86d86663802bdf8, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: miners hat_luz_Metallic
+    second: {fileID: 2800000, guid: bced2ff3bac2b104aa14072ef35b8bfb, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: miners hat_luz_Normal
+    second: {fileID: 2800000, guid: 20db0016b8a33bd408314f5a271b4ea3, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: miners hat_luz_Roughness
+    second: {fileID: 2800000, guid: 0c11405ed977fc24daeaeaff98a8bf02, type: 3}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    generateMeshLods: 0
+    meshLodGenerationFlags: 0
+    maximumMeshLod: -1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    strictVertexDataChecks: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

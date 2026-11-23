@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig>
+  <Tracking>
+    <ImageTarget name="compressed-6-the-lovers-602x1024" size="20.000000 34.019932" />
+    <ImageTarget name="pixar-toystory" size="200.000000 233.257401" />
+    <ImageTarget name="joker" size="200.000000 285.351562" />
+  </Tracking>
+</QCARConfig>
