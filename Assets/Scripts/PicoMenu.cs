@@ -34,13 +34,33 @@ namespace MineEscape
             {
                 grabInteractable.movementType = XRBaseInteractable.MovementType.Instantaneous;
                 grabInteractable.useDynamicAttach = false;
-                grabInteractable.throwOnDetach = false;
+                grabInteractable.throwOnDetach = true;
                 grabInteractable.farAttachMode = InteractableFarAttachMode.Near;
+                grabInteractable.smoothPosition = true;
+                grabInteractable.smoothPositionAmount = 14f;
+                grabInteractable.smoothRotation = true;
+                grabInteractable.smoothRotationAmount = 14f;
+
+                if (grabInteractable.attachTransform != null)
+                {
+                    grabInteractable.attachTransform.localPosition = new Vector3(0f, 0f, -0.001f);
+                    grabInteractable.attachTransform.localRotation = Quaternion.Euler(0f, 90f, 90f);
+                }
             }
 
-            foreach (Collider col in GetComponentsInChildren<Collider>())
+            Collider[] picoColliders = GetComponentsInChildren<Collider>();
+            foreach (Collider col in picoColliders)
             {
                 col.isTrigger = false;
+            }
+
+            CharacterController playerController = FindFirstObjectByType<CharacterController>();
+            if (playerController != null)
+            {
+                foreach (Collider col in picoColliders)
+                {
+                    Physics.IgnoreCollision(col, playerController, true);
+                }
             }
         }
 
@@ -75,6 +95,11 @@ namespace MineEscape
         private void AlSoltar(SelectExitEventArgs _)
         {
             _interactorActual = null;
+            if (rb != null)
+            {
+                rb.isKinematic = false;
+                rb.useGravity = true;
+            }
         }
 
         public void Vibrar(float amplitud = 0.7f, float duracion = 0.12f)

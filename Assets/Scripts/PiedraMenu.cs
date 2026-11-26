@@ -19,6 +19,7 @@ namespace MineEscape
 
         [Header("VFX y Sonidos (Assets directos)")]
         [SerializeField] private GameObject vfxImpactoPrefab;
+        [SerializeField] private float escalaVfx = 0.45f;
         [SerializeField] private float duracionVfx = 2f;
         [SerializeField] private AudioClip sonidoGolpe;
 
@@ -105,6 +106,12 @@ namespace MineEscape
             if (vfxImpactoPrefab != null)
             {
                 GameObject vfx = Instantiate(vfxImpactoPrefab, puntoImpacto, Quaternion.identity);
+                foreach (ParticleSystem ps in vfx.GetComponentsInChildren<ParticleSystem>(true))
+                {
+                    var main = ps.main;
+                    main.scalingMode = ParticleSystemScalingMode.Hierarchy;
+                }
+                vfx.transform.localScale *= escalaVfx;
                 Destroy(vfx, duracionVfx);
             }
 
