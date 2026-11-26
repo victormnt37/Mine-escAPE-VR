@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.XR.Interaction.Toolkit.Attachment;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
 using UnityEngine.XR.Interaction.Toolkit.Interactors;
 
@@ -10,27 +11,17 @@ namespace MineEscape
         [Header("Referencias")]
         [SerializeField] private Rigidbody rb;
         [SerializeField] private XRGrabInteractable grabInteractable;
+        [Tooltip("Asigna aquí el BoxCollider de la cabeza del pico para que el mango no cuente golpes.")]
+        [SerializeField] private Collider colliderCabeza;
 
-        [Header("Retorno al pedestal")]
-        [Tooltip("Segundos tras soltar el pico antes de que vuelva a su posición inicial.")]
-        [SerializeField] private float tiempoParaVolver = 4f;
-
-        [Tooltip("Si el pico cae por debajo de esta altura Y, vuelve inmediatamente.")]
-        [SerializeField] private float alturaMinimaVolver = -2f;
-
-        private Vector3 _posicionInicial;
-        private Quaternion _rotacionInicial;
         private Vector3 _ultimaPosicion;
-        private float _temporizadorSuelto;
-        private bool _estaAgarrado;
         private XRBaseInputInteractor _interactorActual;
 
         public float VelocidadActual { get; private set; }
+        public Collider ColliderCabeza => colliderCabeza;
 
         private void Awake()
         {
-            _posicionInicial = transform.position;
-            _rotacionInicial = transform.rotation;
             _ultimaPosicion = transform.position;
 
             if (rb != null)
@@ -42,7 +33,9 @@ namespace MineEscape
             if (grabInteractable != null)
             {
                 grabInteractable.movementType = XRBaseInteractable.MovementType.Instantaneous;
+                grabInteractable.useDynamicAttach = false;
                 grabInteractable.throwOnDetach = false;
+                grabInteractable.farAttachMode = InteractableFarAttachMode.Near;
             }
 
             foreach (Collider col in GetComponentsInChildren<Collider>())
@@ -74,40 +67,13 @@ namespace MineEscape
             _ultimaPosicion = transform.position;
         }
 
-        private void FixedUpdate()
-        {
-            if (_estaAgarrado)
-            {
-                return;
-            }
-
-            if (transform.position.y < alturaMinimaVolver)
-            {
-                VolverAlSitio();
-                return;
-            }
-
-            if (Vector3.Distance(transform.position, _posicionInicial) > 0.05f)
-            {
-                _temporizadorSuelto += Time.fixedDeltaTime;
-                if (_temporizadorSuelto >= tiempoParaVolver)
-                {
-                    VolverAlSitio();
-                }
-            }
-        }
-
         private void AlAgarrar(SelectEnterEventArgs args)
         {
-            _estaAgarrado = true;
-            _temporizadorSuelto = 0f;
             _interactorActual = args.interactorObject as XRBaseInputInteractor;
         }
 
         private void AlSoltar(SelectExitEventArgs _)
         {
-            _estaAgarrado = false;
-            _temporizadorSuelto = 0f;
             _interactorActual = null;
         }
 
@@ -117,19 +83,6 @@ namespace MineEscape
             {
                 _interactorActual.SendHapticImpulse(amplitud, duracion);
             }
-        }
-
-        public void VolverAlSitio()
-        {
-            _temporizadorSuelto = 0f;
-            if (rb != null && !rb.isKinematic)
-            {
-                rb.linearVelocity = Vector3.zero;
-                rb.angularVelocity = Vector3.zero;
-            }
-            transform.SetPositionAndRotation(_posicionInicial, _rotacionInicial);
-            _ultimaPosicion = _posicionInicial;
-            VelocidadActual = 0f;
         }
     }
 }
