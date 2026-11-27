@@ -1845,14 +1845,7 @@ MonoBehaviour:
   golpesNecesarios: 3
   velocidadMinimaGolpe: 0.15
   cooldownGolpe: 0.3
-  modo: 0
-  videoClip: {fileID: 32900000, guid: 1d706954b9028824d9a87fbe6d969053, type: 3}
-  videoPlayer: {fileID: 0}
-  pantallaObjeto: {fileID: 0}
-  autoCrearPantallaSiNoExiste: 1
-  offsetPantalla: {x: 0, y: 1.2, z: 1.8}
-  tamanoPantalla: {x: 2.4, y: 1.35}
-  bucle: 0
+  nombreEscenaTrailer: Trailer360
   vfxImpactoPrefab: {fileID: 0}
   escalaVfx: 0.45
   duracionVfx: 2
@@ -2356,7 +2349,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1178791450436251564, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_CameraYOffset
-      value: 0.35
+      value: 1.36144
       objectReference: {fileID: 0}
     - target: {fileID: 1178791450436251564, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_RequestedTrackingOriginMode

@@ -11,6 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Minijuego.unity
     guid: 7b6a23691d54bf5468ec283b3debefc4
+  - enabled: 1
+    path: Assets/Scenes/Trailer360.unity
+    guid: c5060fdaaf57be6458ef2a7db4287086
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: fdc0fa70f58b3f84fa6d04dc4a030f6f, type: 2}
