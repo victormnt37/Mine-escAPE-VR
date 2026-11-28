@@ -120,6 +120,10 @@ namespace MineEscape.Editor
                 GameObject canvasGo = new GameObject("Canvas_Controles360");
                 Canvas canvas = canvasGo.AddComponent<Canvas>();
                 canvas.renderMode = RenderMode.WorldSpace;
+                canvas.additionalShaderChannels =
+                    AdditionalCanvasShaderChannels.TexCoord1 |
+                    AdditionalCanvasShaderChannels.Normal |
+                    AdditionalCanvasShaderChannels.Tangent;
                 canvasGo.AddComponent<CanvasScaler>();
                 canvasGo.AddComponent<GraphicRaycaster>();
                 canvasGo.AddComponent<TrackedDeviceGraphicRaycaster>();
@@ -150,16 +154,16 @@ namespace MineEscape.Editor
                 layout.childForceExpandWidth = true;
                 layout.childForceExpandHeight = true;
 
-                // Botón 1: Pausa
-                (Button btnPausa, TextMeshProUGUI txtPausa) = CrearBoton(panelGo.transform, "Btn_Pausa", "Pausa", new Color(0.22f, 0.45f, 0.72f, 1f));
+                // Botón 1: Pausa (estilo botón principal del menú)
+                (Button btnPausa, TextMeshProUGUI txtPausa) = CrearBoton(panelGo.transform, "Btn_Pausa", "Pausa", esSalir: false);
                 UnityEventTools.AddPersistentListener(btnPausa.onClick, controller.AlternarPausa);
 
-                // Botón 2: Volver a ver
-                (Button btnReplay, _) = CrearBoton(panelGo.transform, "Btn_VolverAVer", "Volver a ver", new Color(0.25f, 0.58f, 0.36f, 1f));
+                // Botón 2: Volver a ver (estilo botón principal del menú)
+                (Button btnReplay, _) = CrearBoton(panelGo.transform, "Btn_VolverAVer", "Volver a ver", esSalir: false);
                 UnityEventTools.AddPersistentListener(btnReplay.onClick, controller.VolverAVer);
 
-                // Botón 3: Salir
-                (Button btnSalir, _) = CrearBoton(panelGo.transform, "Btn_Salir", "Salir", new Color(0.72f, 0.24f, 0.24f, 1f));
+                // Botón 3: Salir (estilo botón Salir del menú)
+                (Button btnSalir, _) = CrearBoton(panelGo.transform, "Btn_Salir", "Salir", esSalir: true);
                 UnityEventTools.AddPersistentListener(btnSalir.onClick, controller.Salir);
 
                 // Asignar campos serializados en Trailer360Controller
@@ -187,29 +191,48 @@ namespace MineEscape.Editor
             }
         }
 
-        private static (Button, TextMeshProUGUI) CrearBoton(Transform padre, string nombre, string texto, Color colorFondo)
+        private static (Button, TextMeshProUGUI) CrearBoton(Transform padre, string nombre, string texto, bool esSalir)
         {
             GameObject btnGo = new GameObject(nombre);
             btnGo.transform.SetParent(padre, false);
 
             Image img = btnGo.AddComponent<Image>();
-            img.color = colorFondo;
+            img.sprite = AssetDatabase.GetBuiltinExtraResource<Sprite>("UI/Skin/UISprite.psd");
+            img.type = Image.Type.Sliced;
+            img.color = Color.white;
 
             Button btn = btnGo.AddComponent<Button>();
             ColorBlock colors = btn.colors;
-            colors.normalColor = colorFondo;
-            colors.highlightedColor = colorFondo * 1.25f;
-            colors.pressedColor = colorFondo * 0.75f;
+            if (esSalir)
+            {
+                colors.normalColor = new Color(0.28235295f, 0.28235295f, 0.29411766f, 1f);
+                colors.highlightedColor = new Color(0.43137255f, 0.43137255f, 0.4509804f, 1f);
+                colors.pressedColor = new Color(0.16862746f, 0.16862746f, 0.1764706f, 1f);
+                colors.selectedColor = new Color(0.28235295f, 0.28235295f, 0.29411766f, 1f);
+            }
+            else
+            {
+                colors.normalColor = new Color(0.47843137f, 0.29411766f, 0.15294118f, 1f);
+                colors.highlightedColor = new Color(0.72156864f, 0.45882353f, 0.19607843f, 1f);
+                colors.pressedColor = new Color(0.2901961f, 0.16470589f, 0.07843138f, 1f);
+                colors.selectedColor = new Color(0.5568628f, 0.34117648f, 0.1764706f, 1f);
+            }
+            colors.disabledColor = new Color(0.78431374f, 0.78431374f, 0.78431374f, 0.5019608f);
+            colors.colorMultiplier = 1f;
+            colors.fadeDuration = 0.1f;
             btn.colors = colors;
 
             GameObject txtGo = new GameObject("Text (TMP)");
             txtGo.transform.SetParent(btnGo.transform, false);
             TextMeshProUGUI tmp = txtGo.AddComponent<TextMeshProUGUI>();
             tmp.text = texto;
-            tmp.fontSize = 36f;
             tmp.fontStyle = FontStyles.Bold;
+            tmp.characterSpacing = 3f;
+            tmp.enableAutoSizing = true;
+            tmp.fontSizeMin = 18f;
+            tmp.fontSizeMax = 42f;
             tmp.alignment = TextAlignmentOptions.Center;
-            tmp.color = Color.white;
+            tmp.color = new Color(0.9490196f, 0.9490196f, 0.9607843f, 1f);
 
             RectTransform txtRect = txtGo.GetComponent<RectTransform>();
             txtRect.anchorMin = Vector2.zero;

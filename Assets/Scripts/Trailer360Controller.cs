@@ -1,3 +1,4 @@
+using System.Collections;
 using System.IO;
 using TMPro;
 using UnityEngine;
@@ -20,18 +21,85 @@ namespace MineEscape
         [SerializeField] private Material skyboxMaterial;
 
         [Header("UI")]
+        [SerializeField] private Canvas canvasControles;
         [SerializeField] private TextMeshProUGUI textoBotonPausa;
+        [SerializeField] private float distanciaPanel = 2.0f;
+        [SerializeField] private float alturaRelativaPanel = -0.2f;
+        [SerializeField] private float anguloReubicacion = 65f;
 
         [Header("Navegación")]
         [SerializeField] private string escenaSalidaPorDefecto = "MenuPrincipal";
 
         private bool _enPausa = false;
+        private Camera _camaraPrincipal;
 
         private void Start()
         {
             ConfigurarSkybox360();
             ConfigurarVideo();
             IniciarDesdeElPrincipio();
+            StartCoroutine(InicializarUIFrenteACamara());
+        }
+
+        private IEnumerator InicializarUIFrenteACamara()
+        {
+            // Esperar un frame para que el tracking VR inicialice la posición/rotación de la cámara
+            yield return null;
+
+            if (canvasControles == null)
+            {
+                canvasControles = FindFirstObjectByType<Canvas>();
+            }
+
+            _camaraPrincipal = Camera.main;
+            if (_camaraPrincipal == null)
+            {
+                _camaraPrincipal = FindFirstObjectByType<Camera>();
+            }
+
+            if (canvasControles != null)
+            {
+                canvasControles.additionalShaderChannels |=
+                    AdditionalCanvasShaderChannels.TexCoord1 |
+                    AdditionalCanvasShaderChannels.Normal |
+                    AdditionalCanvasShaderChannels.Tangent;
+
+                if (_camaraPrincipal != null)
+                {
+                    canvasControles.worldCamera = _camaraPrincipal;
+                    PosicionarPanelFrenteACamara(_camaraPrincipal);
+                }
+            }
+        }
+
+        private void Update()
+        {
+            if (canvasControles == null || _camaraPrincipal == null) return;
+
+            Vector3 camForward = Vector3.ProjectOnPlane(_camaraPrincipal.transform.forward, Vector3.up).normalized;
+            if (camForward.sqrMagnitude < 0.001f) return;
+
+            Vector3 dirToPanel = Vector3.ProjectOnPlane(
+                canvasControles.transform.position - _camaraPrincipal.transform.position,
+                Vector3.up).normalized;
+
+            if (dirToPanel.sqrMagnitude < 0.001f || Vector3.Angle(camForward, dirToPanel) > anguloReubicacion)
+            {
+                PosicionarPanelFrenteACamara(_camaraPrincipal);
+            }
+        }
+
+        private void PosicionarPanelFrenteACamara(Camera cam)
+        {
+            Vector3 forward = Vector3.ProjectOnPlane(cam.transform.forward, Vector3.up).normalized;
+            if (forward.sqrMagnitude < 0.001f)
+            {
+                forward = Vector3.forward;
+            }
+
+            Vector3 pos = cam.transform.position + forward * distanciaPanel + Vector3.up * alturaRelativaPanel;
+            canvasControles.transform.position = pos;
+            canvasControles.transform.rotation = Quaternion.LookRotation(forward, Vector3.up);
         }
 
         private void ConfigurarSkybox360()
